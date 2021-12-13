@@ -166,21 +166,21 @@ const intervalData = [
 ];
 
 const adjustData = [
-  {"type": "Email", "index": 0, "value": -120},
-  {"type": "Email", "index": 1, "value": -132},
-  {"type": "Email", "index": 2, "value": -101},
-  {"type": "Email", "index": 3, "value": -132},
-  {"type": "Email", "index": 4, "value": -101},
-  {"type": "Affiliate", "index": 0, "value": 240},
-  {"type": "Affiliate", "index": 1, "value": 0},
-  {"type": "Affiliate", "index": 2, "value": 191},
-  {"type": "Affiliate", "index": 3, "value": 82},
-  {"type": "Affiliate", "index": 4, "value": 291},
-  {"type": "Video", "index": 0, "value": 150},
-  {"type": "Video", "index": 1, "value": 232},
-  {"type": "Video", "index": 2, "value": 201},
-  {"type": "Video", "index": 3, "value": 154},
-  {"type": "Video", "index": 4, "value": 190},
+  {"type": "Income", "month": '0', "value": 120},
+  {"type": "Income", "month": '1', "value": 20},
+  {"type": "Income", "month": '2', "value": 109},
+  {"type": "Income", "month": '3', "value": 132},
+  {"type": "Income", "month": '4', "value": 15},
+  {"type": "Consumption", "month": '0', "value": -100},
+  {"type": "Consumption", "month": '1', "value": -25},
+  {"type": "Consumption", "month": '2', "value": -179},
+  {"type": "Consumption", "month": '3', "value": -32},
+  {"type": "Consumption", "month": '4', "value": -5},
+  {"type": "Sum", "month": '0', "value": 20},
+  {"type": "Sum", "month": '1', "value": -5},
+  {"type": "Sum", "month": '2', "value": -70},
+  {"type": "Sum", "month": '3', "value": 100},
+  {"type": "Sum", "month": '4', "value": 10},
 ];
 
 const scatterData = [

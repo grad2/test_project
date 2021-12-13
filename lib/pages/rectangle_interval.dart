@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:graphic/graphic.dart';
 
@@ -21,45 +23,56 @@ class RectangleIntervalPage extends StatelessWidget {
           margin: const EdgeInsets.only(top: 10),
           width: 350,
           height: 300,
-          child: Chart(
-            data: adjustData,
-            variables: {
-              'index': Variable(
-                accessor: (Map map) => map['index'].toString(),
-              ),
-              'type': Variable(
-                accessor: (Map map) => map['type'] as String,
-              ),
-              'value': Variable(
-                accessor: (Map map) => map['value'] as num,
-                scale: LinearScale(min: -400, max: 400),
-              ),
-            },
-            elements: [
-              IntervalElement(
-                position: Varset('index') * Varset('value') / Varset('type'),
-                color: ColorAttr(
-                  encoder: (map){
-                    return  map['type'] == 'Video' ? Colors.green.withOpacity(0.2) :
-                    map['value'] > 0 ? Colors.green : Colors.red;
-                  },
-                ),
-                label: LabelAttr(
-                  encoder: (tuple) => Label(""),
-                ),
-                modifiers: [JitterModifier(ratio: 0)],
-              )
-            ],
-            axes: [
-              Defaults.horizontalAxis,
-              Defaults.verticalAxis,
-            ],
-            selections: {
-              'tap': PointSelection(
-                variable: 'index',
-              )
-            },
-            tooltip: TooltipGuide(multiTuples: true),
+          child: Builder(
+            builder: (context) {
+              final List<int> list = adjustData.map((e) => e['type'] == 'Sum' ? e['value'] as int : 0).toList();
+              final minH = list.cast<num>().reduce(min);
+              return Chart(
+                data: adjustData,
+                variables: {
+                  'month': Variable(
+                    accessor: (Map map) => map['month'].toString(),
+                  ),
+                  'type': Variable(
+                    accessor: (Map map) => map['type'] as String,
+                  ),
+                  'value': Variable(
+                    accessor: (Map map) => map['value'] as num,
+                    scale: LinearScale(min: minH - 50, max: 400),
+                  ),
+                },
+                elements: [
+                  IntervalElement(
+                    position: Varset('month') * Varset('value') / Varset('type'),
+                    color: ColorAttr(
+                      encoder: (map){
+                        if(map['type'] == 'Sum'){
+                          return map['value'] as num < 0 ? Colors.red : Colors.green;
+                        }
+                        if(map['type'] == 'Income'){
+                          return Colors.green.withOpacity(0.2);
+                        }
+                        return Colors.transparent;
+                      },
+                    ),
+                    label: LabelAttr(
+                      encoder: (tuple) => Label(""),
+                    ),
+                    modifiers: [JitterModifier(ratio: 0)],
+                  )
+                ],
+                axes: [
+                  Defaults.horizontalAxis,
+                  Defaults.verticalAxis,
+                ],
+                selections: {
+                  'tap': PointSelection(
+                    variable: 'index',
+                  )
+                },
+                tooltip: TooltipGuide(multiTuples: true),
+              );
+            }
           ),
         ),
       ),
