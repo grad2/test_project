@@ -21,7 +21,7 @@ class LineChart extends StatelessWidget {
 
     List<Map<String, Object>> segmentsMap = [];
     for(Segment segment in segments){
-      segmentsMap.add({"period": segment.period ,"type": 'Income', "value": segment.income});
+      segmentsMap.add({"period": segment.period ,"type": 'Total', "value": segment.income});
       segmentsMap.add({"period": segment.period ,"type": 'Sum', "value": segment.income + segment.consumption});
     }
 

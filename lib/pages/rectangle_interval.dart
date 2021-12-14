@@ -10,6 +10,14 @@ class RectangleIntervalPage extends StatelessWidget {
   List<Segment> segmentList = [
     Segment(income: 120, consumption: -100, period: '1.05.21'),
     Segment( income: 20, consumption: -25, period: '2.05.21'),
+    Segment( income: 20, consumption: -25, period: '4.05.21'),
+    Segment( income: 20, consumption: -25, period: '5.05.21'),
+    Segment( income: 20, consumption: -25, period: '6.05.21'),
+    Segment( income: 20, consumption: -25, period: '7.05.21'),
+    Segment( income: 20, consumption: -25, period: '8.05.21'),
+    Segment( income: 20, consumption: -25, period: '9.05.21'),
+    Segment( income: 20, consumption: -25, period: '10.05.21'),
+    Segment( income: 20, consumption: -25, period: '11.05.21'),
     Segment( income: 109, consumption: -179, period: '3.05.21'),];
   @override
   Widget build(BuildContext context) {
@@ -28,9 +36,10 @@ class RectangleIntervalPage extends StatelessWidget {
 }
 
 class Segment {
-  int income;
-  int consumption;
-  String period;
+  int sum; //income - расход
+  int min; // расход
+  int max; // поступления
+  String name;
   Segment({this.income = 0, this.consumption = 0, required this.period});
 }
 
