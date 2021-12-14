@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_project/pages/custom.dart';
 
 import 'home.dart';
 import 'pages/rectangle_interval.dart';
@@ -9,7 +8,6 @@ final routes = {
   '/': (context) => const HomePage(),
   '/examples/Rectangle Interval Element': (context) => RectangleIntervalPage(),
   '/examples/Polar Interval Element': (context) => PolarIntervalPage(),
-  '/examples/CustomPage': (context) => CustomPage(),
 };
 
 class MyApp extends StatelessWidget {
