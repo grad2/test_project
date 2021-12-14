@@ -56,11 +56,10 @@ class LineChart extends StatelessWidget {
                 }
                 return Colors.blue;
               },
-              onSelection: {
-                'tap': {false: (color) => Colors.black}
-              },
             ),
-            elevation: ElevationAttr(value: 0, onSelection: {
+            elevation: ElevationAttr(
+                value: 0,
+                onSelection: {
               'tap': {true: (_) => 5}
             }),
           )
