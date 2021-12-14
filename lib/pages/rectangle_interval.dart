@@ -8,9 +8,12 @@ class RectangleIntervalPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List<Segment> segmentList = [
-    Segment(income: 120, consumption: -100, period: '1.05.21'),
-    Segment( income: 20, consumption: -25, period: '2.05.21'),
-    Segment( income: 109, consumption: -179, period: '3.05.21'),];
+    Segment(income: 125120, consumption: -225120, period: '1.05.21'),
+    Segment(income: 225120, consumption: -125120, period: '2.05.21'),
+    Segment(income: 325120, consumption: -525120, period: '3.05.21'),
+    Segment(income: 125120, consumption: -125120, period: '4.05.21'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,6 @@ class RectangleIntervalPage extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: Container(
-        padding: const EdgeInsets.all(16),
         child: LineChart(segments: segmentList),
       ),
     );
@@ -31,6 +33,6 @@ class Segment {
   int income;
   int consumption;
   String period;
+
   Segment({this.income = 0, this.consumption = 0, required this.period});
 }
-
