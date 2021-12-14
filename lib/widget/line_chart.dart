@@ -45,7 +45,6 @@ class LineChart extends StatelessWidget {
         elements: [
           IntervalElement(
             position: Varset('period') * Varset('value') / Varset('type'),
-            shape: ShapeAttr(value: RectShape(labelPosition: 0.5)),
             color: ColorAttr(
               encoder: (map){
                 if(map['type'] == 'Sum'){
